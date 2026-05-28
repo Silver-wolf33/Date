@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>You Said Yes 💖</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=dancing-script@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.cdnfonts.com/css/noto-serif-tibetan"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥳</text></svg>"
+    />
+
+    <style>
+      body {
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #e3dfc1, #e8b392, #9fd8b3);
+      }
+
+      /* Celebration Falling Animation */
+      /* Realistic Confetti */
+
+      .confetti {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        top: -20px;
+        opacity: 0.9;
+        animation: fall linear forwards;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(0) rotate(0deg);
+        }
+
+        100% {
+          transform: translateY(500px) rotate(720deg);
+          opacity: 0;
+        }
+      }
+
+      /* Floating Hearts */
+      .heart {
+        position: absolute;
+        animation: float 6s linear infinite;
+        opacity: 0;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) scale(0);
+          opacity: 0;
+        }
+
+        50% {
+          opacity: 1;
+        }
+
+        100% {
+          transform: translateY(-120vh) scale(1.5);
+          opacity: 0;
+        }
+      }
+
+      /* Pop Animation */
+      .pop {
+        animation: pop 1s ease infinite alternate;
+      }
+
+      @keyframes pop {
+        from {
+          transform: scale(1);
+        }
+
+        to {
+          transform: scale(1.08);
+        }
+      }
+
+      /* Letter Animation */
+      .letter-show {
+        animation: fadeIn 1s ease forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(40px) scale(0.95);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .hello {
+        font-family: "Dancing Script", cursive;
+      }
+      .hi {
+        font-family: "Noto Serif Tibetan", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="relative flex items-center justify-center min-h-screen">
+    <!-- Floating Hearts -->
+    <div class="heart text-5xl left-[10%]" style="animation-delay: 0s">💖</div>
+
+    <div class="heart text-4xl left-[25%]" style="animation-delay: 2s">💕</div>
+
+    <div class="heart text-6xl left-[50%]" style="animation-delay: 4s">💘</div>
+
+    <div class="heart text-5xl left-[70%]" style="animation-delay: 1s">❤️</div>
+
+    <div class="heart text-4xl left-[85%]" style="animation-delay: 3s">💗</div>
+
+    <!-- Main Card -->
+    <div
+      id="mainCard"
+      class="relative z-10 w-[90%] max-w-2xl p-10 overflow-hidden border shadow-2xl rounded-3xl backdrop-blur-xl"
+      style="
+        background: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.4);
+      "
+    >
+      <!-- Confetti Container -->
+      <div
+        id="confettiContainer"
+        class="absolute inset-0 overflow-hidden pointer-events-none rounded-3xl"
+      ></div>
+      <!-- First Content -->
+      <div id="firstContent" class="text-center">
+        <div class="mb-5 text-7xl pop">🎉</div>
+
+        <h1 class="mb-5 text-4xl font-bold" style="color: #c71573">
+          You said yes? Aww 🥹💖
+        </h1>
+
+        <p
+          class="max-w-xl mx-auto mb-8 text-lg leading-8"
+          style="color: #6b2150"
+        >
+          Congratulations 🎉 You officially unlocked the premium boyfriend
+          experience 😁. Side effects may include random flirting and
+          compliments, late-night talks and an unhealthy amount of obsession
+          with your smile 😭💖
+        </p>
+
+        <button
+          onclick="showLetter()"
+          class="px-8 py-3 text-lg font-semibold text-white transition-all duration-300 rounded-2xl hover:scale-110"
+          style="background: linear-gradient(to right, #c71573, #c9a24d)"
+        >
+          Open Letter 💌
+        </button>
+      </div>
+
+      <!-- Letter Content -->
+      <div id="letterContent" class="hidden">
+        <div
+          class="p-8 shadow-xl rounded-3xl letter-show"
+          style="background: #e3dfc1; border: 2px solid #e8b392"
+        >
+          <div class="mb-4 text-5xl text-center">💌</div>
+
+          <h2
+            class="mb-6 text-4xl font-extrabold text-center hello"
+            style="color: #c71573"
+          >
+            To My Favorite Person
+          </h2>
+
+          <div
+            id="scrollBox"
+            class="space-y-4 text-lg leading-7 overflow-y-scroll h-100 no-scrollbar relative"
+            style="color: #5c3a3a"
+          >
+            <p>Happy anniversary, My dear,</p>
+
+            <p>
+              Even though the time we have spent together is very short, this
+              small journey has made us stronger. I believe we will come even
+              closer to each other in the days ahead. 💖
+              <br />
+              In this short time, you have taken up so much space in my life
+              that words have not yet been created to express it. You have
+              brought a flow of joy and happiness into my life.😘
+            </p>
+
+            <p>
+              I know I may not have been able to try every moment to be close to
+              you, but my beloved, is it not possible for me to have just a
+              little bit of your time? 😌✨
+            </p>
+
+            <p>
+              I love you very much. If I say it in the language of poetry...
+            </p>
+
+            <p class="hi">
+              “Shayad ab tak main tumhein apna bana nahi saka… 🌙
+              <br />
+              Magar tumhein dekhne ki ek jhalak ke liye,<br />
+              roz duniyaa se hi jung ladta hoon. <br />Khamoshi bhi toot jaati
+              hai, sabr bhi bikhar sa jaata hai,<br />
+              jab bas tum ek pal ke liye saamne aa jaati ho… ✨"
+            </p>
+
+            <div class="sticky bottom-0 flex justify-center pb-2 translate-y-4">
+              <button
+                id="scrollBtn"
+                class="w-12 h-12 rounded-full bg-black/20 backdrop-blur-md text-white text-2xl animate-bounce transition-all duration-500"
+              >
+                ↓
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-8 text-center">
+            <button
+              onclick="goNext()"
+              class="px-8 py-3 text-lg font-semibold text-white transition-all duration-300 rounded-2xl hover:scale-110"
+              style="background: linear-gradient(to right, #c71573, #c9a24d)"
+            >
+              Continue 💞
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showLetter() {
+        document.getElementById("firstContent").classList.add("hidden");
+
+        document.getElementById("letterContent").classList.remove("hidden");
+      }
+
+      function goNext() {
+        window.location.href = "page3.html";
+      }
+      window.addEventListener("load", () => {
+        const container = document.getElementById("confettiContainer");
+
+        for (let i = 0; i < 150; i++) {
+          const confetti = document.createElement("div");
+
+          confetti.classList.add("confetti");
+
+          // Random position inside card
+          confetti.style.left = Math.random() * 100 + "%";
+
+          // Romantic colors
+          const colors = [
+            "#C9A24D",
+            "#C71573",
+            "#E8B392",
+            "#9FD8B3",
+            "#ffffff",
+          ];
+
+          confetti.style.backgroundColor =
+            colors[Math.floor(Math.random() * colors.length)];
+
+          // Random size
+          const size = Math.random() * 10 + 5;
+
+          confetti.style.width = size + "px";
+          confetti.style.height = size + "px";
+
+          // Random speed
+          confetti.style.animationDuration = Math.random() * 2 + 1 + "s";
+
+          container.appendChild(confetti);
+
+          // Remove after animation
+          setTimeout(() => {
+            confetti.remove();
+          }, 4000);
+        }
+      });
+      const scrollBox = document.getElementById("scrollBox");
+      const scrollBtn = document.getElementById("scrollBtn");
+
+      scrollBtn.addEventListener("click", () => {
+        scrollBox.scrollBy({
+          top: 120,
+          behavior: "smooth",
+        });
+      });
+
+      scrollBox.addEventListener("scroll", () => {
+        const isBottom =
+          scrollBox.scrollTop + scrollBox.clientHeight >=
+          scrollBox.scrollHeight - 10;
+
+        if (isBottom) {
+          scrollBtn.classList.add(
+            "opacity-0",
+            "translate-y-5",
+            "pointer-events-none",
+          );
+        } else {
+          scrollBtn.classList.remove(
+            "opacity-0",
+            "translate-y-5",
+            "pointer-events-none",
+          );
+        }
+      });
+    </script>
+  </body>
+</html>

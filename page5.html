@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>It's a Date 💌</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=dancing-script@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.cdnfonts.com/css/noto-serif-tibetan"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>"
+    />
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #e3dfc1, #e8b392, #9fd8b3);
+        overflow-x: hidden;
+      }
+
+      .card {
+        animation: pop 0.8s ease;
+      }
+
+      @keyframes pop {
+        from {
+          opacity: 0;
+          transform: scale(0.95) translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      .box {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(10px);
+        border: 1px solid #e8b392;
+      }
+
+      button {
+        transition: 0.3s;
+      }
+
+      button:hover {
+        transform: scale(1.05);
+      }
+
+      .cursor {
+        display: inline-block;
+        width: 10px;
+        background-color: #c71573;
+        margin-left: 2px;
+        animation: blink 0.8s infinite;
+      }
+
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+      /* Floating Hearts */
+      .heart {
+        position: absolute;
+        animation: float 6s linear infinite;
+        opacity: 0;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) scale(0);
+          opacity: 0;
+        }
+
+        50% {
+          opacity: 1;
+        }
+
+        100% {
+          transform: translateY(-120vh) scale(1.5);
+          opacity: 0;
+        }
+      }
+      .hello {
+        font-family: "Dancing Script", cursive;
+      }
+      .hi {
+        font-family: "Noto Serif Tibetan", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="flex items-center justify-center min-h-screen">
+    <!-- Floating Hearts -->
+    <div class="heart text-5xl left-[10%]" style="animation-delay: 0s">💖</div>
+
+    <div class="heart text-4xl left-[25%]" style="animation-delay: 2s">💕</div>
+
+    <div class="heart text-6xl left-[50%]" style="animation-delay: 4s">💘</div>
+
+    <div class="heart text-5xl left-[70%]" style="animation-delay: 1s">❤️</div>
+
+    <div class="heart text-4xl left-[85%]" style="animation-delay: 3s">💗</div>
+    <div class="w-[92%] max-w-2xl text-center card mt-10">
+      <!-- TITLE -->
+      <h1 class="text-6xl font-extrabold mb-2 hello" style="color: #c71573">
+        It’s a Date, Babe!!! 💌
+      </h1>
+
+      <p class="mb-6" style="color: #6b2150">
+        Everything is already planned… you just have to show up 😌💖
+      </p>
+
+      <!-- ROMANTIC LETTER -->
+      <!-- <div class="box rounded-3xl p-6 mb-6">
+        <p class="text-lg leading-8" style="color: #5c3a3a">
+          I’ve carefully chosen our little moment together 🥹💖<br />
+          It’s going to be soft, cute, and a little bit dangerous for my
+          heart.<br />
+          I already know I’ll be smiling more than I should… just because it’s
+          you.
+        </p>
+      </div> -->
+      <!-- summury -->
+      <div class="box rounded-3xl p-6 mb-6 text-center bg-[#E3DFC1]">
+        <h2
+          class="text-2xl font-extrabold mb-4 text-center hello"
+          style="color: #c71573"
+        >
+          For You 💌
+        </h2>
+
+        <div
+          id="typewriter"
+          class="text-lg leading-8 hi"
+          style="color: #5c3a3a"
+        ></div>
+      </div>
+      <!-- INFO BOXES -->
+      <div class="grid grid-cols-2 gap-4 mb-6">
+        <div class="box rounded-2xl p-5 text-left">
+          <h2 class="font-bold mb-2" style="color: #c71573">📅 Date & Time</h2>
+          <p id="dateTimeText" style="color: #5c3a3a">Not selected yet</p>
+        </div>
+
+        <div class="box rounded-2xl p-5 text-left">
+          <h2 class="font-bold mb-2" style="color: #c71573">💞 Activities</h2>
+          <p id="activityText" style="color: #5c3a3a">Not selected yet</p>
+        </div>
+      </div>
+
+      <!-- BUTTONS -->
+      <div class="w-full flex gap-6 justify-center">
+        <button
+          onclick="sendWhatsApp()"
+          class="w-40 py-4 text-white text-lg rounded-2xl"
+          style="background: linear-gradient(to right, #c71573, #c9a24d)"
+        >
+          Text Me 💌
+        </button>
+
+        <button
+          onclick="copyPlan()"
+          class="w-40 py-4 text-white text-lg rounded-2xl"
+          style="background: rgba(199, 21, 115, 0.8)"
+        >
+          Copy Plan 📋
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // Dummy data (later you can connect localStorage from previous pages)
+      let date = localStorage.getItem("date") || "Not selected";
+      let time = localStorage.getItem("time") || "Not selected";
+      let activities = localStorage.getItem("activities") || "Not selected";
+
+      const lines = [
+        `" Though words fail me, I still linger in silence,`,
+
+        `thirsting for every drop of your presence.`,
+
+        `Like the pied cuckoo, lost in longing for rain,`,
+
+        `I shall remain in waiting, through joy or pain "`,
+      ];
+
+      let i = 0;
+      let j = 0;
+      const speed = 35;
+      const container = document.getElementById("typewriter");
+
+      function type() {
+        if (i < lines.length) {
+          if (j < lines[i].length) {
+            container.innerHTML += lines[i].charAt(j);
+            j++;
+            setTimeout(type, speed);
+          } else {
+            container.innerHTML += "<br/>";
+            i++;
+            j = 0;
+            setTimeout(type, 300);
+          }
+        } else {
+          container.innerHTML += `<span class="cursor"></span>`;
+        }
+      }
+
+      window.onload = type;
+
+      document.getElementById("dateTimeText").innerText = date + " ⏰ " + time;
+
+      document.getElementById("activityText").innerText = activities;
+
+      function buildMessage() {
+        return `💌 It's a Date!
+
+📅 Date & Time:
+${date} at ${time}
+
+💞 Activities:
+${activities}
+
+Can't wait for our moment 🥹💖`;
+      }
+
+      function copyPlan() {
+        navigator.clipboard.writeText(buildMessage());
+        alert("Plan copied 💖");
+      }
+
+      function sendWhatsApp() {
+        const number = "8801887358729";
+
+        const text = [
+          "💌 IT'S A DATE CONFIRMED 💖",
+          "",
+          "🥹 Our Romantic Plan",
+          "━━━━━━━━━━━━━━",
+          "",
+          "📅 Date & Time:",
+          date + " ⏰ " + time,
+          "",
+          "💞 Activities:",
+          activities,
+          "",
+          "✨ Mood:",
+          "Already thinking about you 😌💖",
+          "",
+          "━━━━━━━━━━━━━━",
+          "💘 Can't wait for our moment 💘",
+        ].join("\n");
+
+        // IMPORTANT: use URL object (MOST STABLE METHOD)
+        const url = new URL("https://wa.me/" + number);
+        url.searchParams.set("text", text);
+
+        window.open(url.toString(), "_blank");
+      }
+    </script>
+  </body>
+</html>

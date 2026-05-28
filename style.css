@@ -1,0 +1,24 @@
+@layer components {
+
+  #datepicker {
+    @apply p-[15px] w-[250px] text-[18px] border-none rounded-[15px]
+           bg-[#fff5f7] shadow-[0_5px_15px_rgba(0,0,0,0.1)] outline-none;
+  }
+
+  /* Calendar Popup */
+  .ui-datepicker {
+    @apply rounded-[20px] p-[15px] bg-white
+           shadow-[0_10px_30px_rgba(0,0,0,0.15)] font-sans;
+  }
+
+  /* Header */
+  .ui-datepicker-header {
+    @apply bg-[#ff4d8d] text-white border-none
+           rounded-[12px] p-[10px];
+  }
+
+  /* Selected Date */
+  .ui-state-active {
+    @apply bg-[#ff4d8d] text-white border-none rounded-[10px];
+  }
+}

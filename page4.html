@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choose Our Date 💖</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+      body {
+        overflow-x: hidden;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #e3dfc1, #e8b392, #9fd8b3);
+      }
+
+      .card {
+        transition: all 0.25s ease;
+        cursor: pointer;
+      }
+
+      .card:hover {
+        transform: scale(1.05);
+      }
+
+      .selected {
+        border: 2px solid #c71573 !important;
+        box-shadow: 0 0 20px rgba(199, 21, 115, 0.4);
+        transform: scale(1.07);
+      }
+
+      .fade {
+        animation: fadeIn 0.8s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+
+  <body class="flex items-center justify-center min-h-screen mt-10">
+    <div class="w-[92%] max-w-5xl text-center">
+      <h1 class="text-4xl font-bold mb-3" style="color: #c71573">
+        What kind of date are we going on? 💌
+      </h1>
+
+      <p class="mb-8 text-lg" style="color: #6b2150">
+        You can choose more than one… I don’t mind stealing more time with you
+        😌💖
+      </p>
+
+      <!-- GRID -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- CARD 1 -->
+        <div
+          class="card bg-white/40 backdrop-blur-md p-5 rounded-3xl shadow-xl/30 border border-[#EEDECE]"
+          onclick="toggle(this)"
+        >
+          <img
+            src="asset/a.png"
+            class="w-full h-40 object-cover rounded-2xl mb-4"
+          />
+          <h2 class="text-xl font-bold mt-2" style="color: #c71573">
+            Coffee Date <span class="text-4xl">☕</span>
+          </h2>
+          <p class="text-sm mt-1">
+            Just us, caffeine, and dangerous eye contact 😏
+          </p>
+        </div>
+
+        <!-- CARD 2 -->
+        <div
+          class="card bg-white/40 backdrop-blur-md p-5 rounded-3xl shadow-xl/30 border border-[#EEDECE]"
+          onclick="toggle(this)"
+        >
+          <img
+            src="asset/b.png"
+            class="w-full h-40 object-cover rounded-2xl mb-4"
+          />
+          <h2 class="text-xl font-bold mt-2" style="color: #c71573">
+            Walking Date <span class="text-4xl">🚶</span>
+          </h2>
+          <p class="text-sm mt-1">
+            Holding hands & pretending the world doesn’t exist 💞
+          </p>
+        </div>
+
+        <!-- CARD 3 -->
+        <div
+          class="card bg-white/40 backdrop-blur-md p-5 rounded-3xl shadow-xl/30 border border-[#EEDECE]"
+          onclick="toggle(this)"
+        >
+          <img
+            src="asset/d.png"
+            class="w-full h-40 object-cover rounded-2xl mb-4"
+          />
+          <h2 class="text-xl font-bold mt-2" style="color: #c71573">
+            Street Food Date <span class="text-4xl">🍜</span>
+          </h2>
+          <p class="text-sm mt-1">
+            We’ll share food… maybe… A beautiful, serene evening. 😋
+          </p>
+        </div>
+
+        <!-- CARD 4 -->
+        <div
+          class="card bg-white/40 backdrop-blur-md p-5 rounded-3xl shadow-xl/30 border border-[#EEDECE]"
+          onclick="toggle(this)"
+        >
+          <img
+            src="asset/c.png"
+            class="w-full h-40 object-cover rounded-2xl mb-4"
+          />
+          <h2 class="text-xl font-bold mt-2" style="color: #c71573">
+            Movie Date <span class="text-4xl">🎬</span>
+          </h2>
+          <p class="text-sm mt-1">We’ll watch the movie… or each other 👀</p>
+        </div>
+
+        <!-- CARD 5 -->
+        <div
+          class="card bg-white/40 backdrop-blur-md p-5 rounded-3xl shadow-xl/30 border border-[#EEDECE]"
+          onclick="toggle(this)"
+        >
+          <img
+            src="asset/e.png"
+            class="w-full h-40 object-cover rounded-2xl mb-4"
+          />
+          <h2 class="text-xl font-bold mt-2" style="color: #c71573">
+            Late Night Talk <span class="text-4xl">🌙</span>
+          </h2>
+          <p class="text-sm mt-1">
+            Sleep? never heard of it when I’m with you 🥺
+          </p>
+        </div>
+
+        <!-- CARD 6 -->
+        <div
+          class="card bg-white/40 backdrop-blur-md p-5 rounded-3xl shadow-xl/30 border border-[#EEDECE]"
+          onclick="toggle(this)"
+        >
+          <img
+            src="asset/f.png"
+            class="w-full h-40 object-cover rounded-2xl mb-4"
+          />
+          <h2 class="text-xl font-bold mt-2" style="color: #c71573">
+            Dinner Date <span class="text-4xl">🍽️</span>
+          </h2>
+          <p class="text-sm mt-1">
+            “You know… food is great, but I’m more distracted by you 😌💖
+          </p>
+        </div>
+      </div>
+
+      <button
+        onclick="nextPage()"
+        class="mt-10 px-10 py-3 text-white text-lg rounded-2xl"
+        style="background: linear-gradient(to right, #c71573, #c9a24d)"
+      >
+        Confirm Date 💞
+      </button>
+    </div>
+
+    <script>
+      function toggle(el) {
+        el.classList.toggle("selected");
+      }
+
+      let selected = [];
+
+      function toggle(el) {
+        el.classList.toggle("selected");
+
+        const text = el.querySelector("h2").innerText;
+
+        if (selected.includes(text)) {
+          selected = selected.filter((item) => item !== text);
+        } else {
+          selected.push(text);
+        }
+      }
+
+      function nextPage() {
+        localStorage.setItem("activities", selected.join(", "));
+        window.location.href = "page5.html";
+      }
+    </script>
+  </body>
+</html>
